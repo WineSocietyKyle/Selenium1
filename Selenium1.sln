@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium1", "Selenium1\Selenium1.csproj", "{58189DB3-2DF5-4A8A-A8B8-EF778E6C7F97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Join3", "Join3\Join3.csproj", "{5B9928FF-6C4B-4413-98BB-7EEF16FC165A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58189DB3-2DF5-4A8A-A8B8-EF778E6C7F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58189DB3-2DF5-4A8A-A8B8-EF778E6C7F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58189DB3-2DF5-4A8A-A8B8-EF778E6C7F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58189DB3-2DF5-4A8A-A8B8-EF778E6C7F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B9928FF-6C4B-4413-98BB-7EEF16FC165A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B9928FF-6C4B-4413-98BB-7EEF16FC165A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B9928FF-6C4B-4413-98BB-7EEF16FC165A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B9928FF-6C4B-4413-98BB-7EEF16FC165A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B29CF41-80B9-4601-BAFB-D13DED7ACB7A}
+	EndGlobalSection
+EndGlobal
