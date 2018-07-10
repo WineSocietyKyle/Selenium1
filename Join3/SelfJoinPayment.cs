@@ -55,7 +55,6 @@ namespace Join3
             join_selfPaymentPage.EnterCardHoldersName(string.Empty);
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep2")).Enabled);
             join_selfPaymentPage.EnterCardHoldersName(string.Format("MR {0} {1}", forename.ToCharArray()[0], surname.ToUpper()));
-            // Click complete here...
         }
 
         [Test]
@@ -74,7 +73,7 @@ namespace Join3
         public void SelfFullApplicationNoExpiryMonth()
         {
             SelfPayment join_selfPaymentPage = new SelfPayment(base.driver);
-             join_selfPaymentPage.SelectExpiryMonth("EXPIRY MONTH");
+            join_selfPaymentPage.SelectExpiryMonth("EXPIRY MONTH");
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep2")).Enabled);
             join_selfPaymentPage.SelectExpiryMonth("06");
         }
