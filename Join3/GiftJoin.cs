@@ -1,12 +1,12 @@
 ﻿namespace Join3
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
 
-    [TestClass]
+    [TestFixture]
     public class GiftJoin
     {
-        [TestMethod]
+        [Test]
         public void GiftFullApplication()
         {
         }

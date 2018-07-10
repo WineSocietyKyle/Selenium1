@@ -1,6 +1,6 @@
 ﻿namespace Join3.Self_Pages
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Support.UI;
     using System;
@@ -21,6 +21,12 @@
             IWebElement cardHoldersNameField = driver.FindElement(By.Id("tbCardHolderName"));
             EnterValueIntoField(cardHoldersName, cardHoldersNameField);
             CompareElementValue(cardHoldersName, cardHoldersNameField);
+
+            if (cardHoldersName == string.Empty)
+            {
+                cardHoldersNameField.SendKeys("1");
+                cardHoldersNameField.SendKeys(Keys.Backspace);
+            }
         }
 
         public void EnterCardNumber(string cardNumber)
@@ -28,6 +34,12 @@
             IWebElement cardNumberField = driver.FindElement(By.Id("tbCardNumber"));
             EnterValueIntoField(cardNumber, cardNumberField);
             CompareElementValue(cardNumber, cardNumberField);
+
+            if (cardNumber == string.Empty)
+            {
+                cardNumberField.SendKeys("1");
+                cardNumberField.SendKeys(Keys.Backspace);
+            }
         }
 
         public void SelectExpiryMonth(string expiryMonth)
@@ -51,6 +63,12 @@
             IWebElement securityCodeField = driver.FindElement(By.Id("tbCardCCV"));
             EnterValueIntoField(securityCode, securityCodeField);
             CompareElementValue(securityCode, securityCodeField);
+
+            if (securityCode == string.Empty)
+            {
+                securityCodeField.SendKeys("1");
+                securityCodeField.SendKeys(Keys.Backspace);
+            }
         }
 
         public void ProposerSelected(bool yesOrNo)
@@ -61,6 +79,21 @@
             {
                 ClickElement(proposerCheckboxYes);
                 Thread.Sleep(TimeSpan.FromSeconds(2));
+            }
+            else
+            {
+                try
+                {
+                    IWebElement proposerFullName = driver.FindElement(By.Id("tbProposerFullName"));
+                    if (proposerFullName.Displayed)
+                    {
+                        ClickElement(proposerCheckboxNo);
+                    }
+                }
+                catch (Exception)
+                {
+                    // Log Something here
+                }
             }
         }
 
