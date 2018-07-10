@@ -77,7 +77,6 @@ namespace Join3
              join_selfPaymentPage.SelectExpiryMonth("EXPIRY MONTH");
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep2")).Enabled);
             join_selfPaymentPage.SelectExpiryMonth("06");
-            // Click complete here...
         }
 
         [Test]
