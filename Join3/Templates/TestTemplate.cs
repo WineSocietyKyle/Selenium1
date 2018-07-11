@@ -15,12 +15,14 @@
         public string month;
         public string day;
 
+        public abstract string URL { get; }
+
         [OneTimeSetUp]
         public void wanTime()
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://dev.thewinesociety.com/ApplicationForm2/self/step1");
+            driver.Navigate().GoToUrl(URL); //  "https://dev.thewinesociety.com/ApplicationForm2/self/step1");
             PersonNameGenerator p = new PersonNameGenerator();
             forename = p.GenerateRandomMaleFirstName();
             surname = p.GenerateRandomLastName();

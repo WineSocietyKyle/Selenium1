@@ -187,8 +187,8 @@
 
         public void ClickHeader()
         {
-           IWebElement header = driver.FindElement(By.ClassName("no-top-margin"));
-           header.Click();
+            IWebElement header = driver.FindElement(By.ClassName("no-top-margin"));
+            ClickElement(header);
         }
 
         public void CheckErrorMessage(string message)

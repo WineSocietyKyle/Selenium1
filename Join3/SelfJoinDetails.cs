@@ -7,6 +7,8 @@ namespace Join3
     [TestFixture]
     public class SelfJoinDetails : TestTemplate
     {
+        public override string URL { get { return "https://dev.thewinesociety.com/ApplicationForm2/self/step1"; } }
+
         [OneTimeSetUp]
         public void CompletePart1()
         {
@@ -97,6 +99,17 @@ namespace Join3
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
             join_selfDetailsPage.ClickHeader();
             join_selfDetailsPage.CheckErrorMessage("Required Field");
+            join_selfDetailsPage.EnterPhoneNumber("07713187347");
+        }
+
+        [Test]
+        public void SelfFullApplicationInvalidPhoneNumber()
+        {
+            SelfDetails join_selfDetailsPage = new SelfDetails(base.driver);
+            join_selfDetailsPage.EnterPhoneNumber(".");
+            Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
+            join_selfDetailsPage.ClickHeader();
+            join_selfDetailsPage.CheckErrorMessage("Only numbers are allowed.");
             join_selfDetailsPage.EnterPhoneNumber("07713187347");
         }
 

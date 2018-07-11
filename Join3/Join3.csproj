@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GiftJoinYourDetails.cs" />
     <Compile Include="Gift_Pages\GiftDelivery.cs" />
     <Compile Include="Gift_Pages\GiftPayment.cs" />
     <Compile Include="Gift_Pages\GiftRecipient.cs" />

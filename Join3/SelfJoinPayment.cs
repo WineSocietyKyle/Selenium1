@@ -7,6 +7,8 @@ namespace Join3
     [TestFixture]
     public class SelfJoinPayment : TestTemplate
     {
+        public override string URL { get { return "https://dev.thewinesociety.com/ApplicationForm2/self/step1"; } }
+
         [OneTimeSetUp]
         public void completePart1and2()
         {
