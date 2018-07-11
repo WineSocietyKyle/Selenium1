@@ -31,8 +31,7 @@ namespace Join3
             join_selfDetailsPage.EnterFirstName(string.Empty);
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
             join_selfDetailsPage.ClickHeader();
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, "Required Field");
+            join_selfDetailsPage.CheckErrorMessage("Required Field");
             join_selfDetailsPage.EnterFirstName(forename);
         }
 
@@ -42,8 +41,7 @@ namespace Join3
             SelfDetails join_selfDetailsPage = new SelfDetails(base.driver);
             join_selfDetailsPage.EnterFirstName("A");
             join_selfDetailsPage.ClickHeader();
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, "Must be at least 2 characters long.");
+            join_selfDetailsPage.CheckErrorMessage("Must be at least 2 characters long.");
             join_selfDetailsPage.EnterFirstName(forename);
         }
 
@@ -54,8 +52,7 @@ namespace Join3
             join_selfDetailsPage.EnterSurname(string.Empty);
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
             join_selfDetailsPage.ClickHeader();
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, "Required Field");
+            join_selfDetailsPage.CheckErrorMessage("Required Field");
             join_selfDetailsPage.EnterSurname(surname);
         }
 
@@ -66,8 +63,7 @@ namespace Join3
             join_selfDetailsPage.EnterSurname("A");
             join_selfDetailsPage.ClickHeader();
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text,  "Must be at least 2 characters long.");
+            join_selfDetailsPage.CheckErrorMessage("Must be at least 2 characters long.");
             join_selfDetailsPage.EnterSurname(surname);
         }
 
@@ -78,8 +74,7 @@ namespace Join3
             join_selfDetailsPage.EnterEmailAddress(string.Empty);
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
             join_selfDetailsPage.ClickHeader();
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, "Required Field");
+            join_selfDetailsPage.CheckErrorMessage("Required Field");
             join_selfDetailsPage.EnterEmailAddress("brewerk@thewinesociety.com");
         }
 
@@ -90,8 +85,7 @@ namespace Join3
             join_selfDetailsPage.EnterEmailAddress("invlalidEmailAddressExample");
             join_selfDetailsPage.ClickHeader();
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, "Sorry! This doesn`t look like a valid email address. Please try again.");
+            join_selfDetailsPage.CheckErrorMessage("Sorry! This doesn`t look like a valid email address. Please try again.");
             join_selfDetailsPage.EnterEmailAddress("brewerk@thewinesociety.com");
         }
 
@@ -102,8 +96,7 @@ namespace Join3
             join_selfDetailsPage.EnterPhoneNumber(string.Empty);
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
             join_selfDetailsPage.ClickHeader();
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, "Required Field");
+            join_selfDetailsPage.CheckErrorMessage("Required Field");
             join_selfDetailsPage.EnterPhoneNumber("07713187347");
         }
 
@@ -113,6 +106,7 @@ namespace Join3
             SelfDetails join_selfDetailsPage = new SelfDetails(base.driver);
             IWebElement telephoneField = driver.FindElement(By.Id("tbTelephone"));
             telephoneField.Click();
+            // Add true Check for value at this position
             Assert.IsTrue(driver.FindElements(By.ClassName("state-msg-info"))[4].Displayed);
             Assert.AreEqual(driver.FindElements(By.ClassName("state-msg-info"))[4].Text, "We will only call you if there's an issue with your account or orders: our team never make any 'cold calls'.");
         }
@@ -132,8 +126,7 @@ namespace Join3
             SelfDetails join_selfDetailsPage = new SelfDetails(base.driver);
             join_selfDetailsPage.EnterDOB("01", "01", "1900");
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, "The date of birth entered indicates that you might be 118.");
+            join_selfDetailsPage.CheckErrorMessage("The date of birth entered indicates that you might be 118.");
             join_selfDetailsPage.EnterDOB(day, month, year);
         }
 
@@ -143,8 +136,7 @@ namespace Join3
             SelfDetails join_selfDetailsPage = new SelfDetails(base.driver);
             join_selfDetailsPage.EnterDOB("17", "08", "2017");
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, "You must be over the age of 18 to join, you are currently 0.");
+            join_selfDetailsPage.CheckErrorMessage("You must be over the age of 18 to join, you are currently 0.");
             join_selfDetailsPage.EnterDOB(day, month, year);
         }
 
@@ -154,8 +146,7 @@ namespace Join3
             SelfDetails join_selfDetailsPage = new SelfDetails(base.driver);
             join_selfDetailsPage.EnterDOB("32", "13", "3017");
             Assert.IsFalse(driver.FindElement(By.Id("btnSelfStep1")).Enabled);
-            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
-            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, "The date entered is not valid.");
+            join_selfDetailsPage.CheckErrorMessage("The date entered is not valid.");
             join_selfDetailsPage.EnterDOB(day, month, year);
         }
 

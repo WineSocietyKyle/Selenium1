@@ -19,6 +19,7 @@
         public void wanTime()
         {
             driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("https://dev.thewinesociety.com/ApplicationForm2/self/step1");
             PersonNameGenerator p = new PersonNameGenerator();
             forename = p.GenerateRandomMaleFirstName();
@@ -108,18 +109,6 @@
         [TearDown]
         public void tearDown()
         {
-            //if (driver.Url != "https://dev.thewinesociety.com/applicationform2/self/step1")
-            //{
-            //    try
-            //    {
-            //        driver.FindElement(By.ClassName("details")).Click();
-            //    }
-            //    catch (Exception)
-            //    {
-            //        // Log Something here again
-            //    }
-            //}
-            ////driver.Quit();
         }
 
         [OneTimeTearDown]

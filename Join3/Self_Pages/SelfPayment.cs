@@ -123,10 +123,22 @@
             Assert.AreEqual(option, whereDidYouHearSelect.SelectedOption.Text);
         }
 
-        public void clickCompleteApplication()
+        public void ClickCompleteApplication()
         {
             IWebElement completeMyApplication = driver.FindElement(By.Id("btnSelfStep2"));
             ClickElement(completeMyApplication);
-        }       
+        }
+
+        public void ClickHeader()
+        {
+            IWebElement header = driver.FindElement(By.ClassName("no-top-margin"));
+            header.Click();
+        }
+
+        public void CheckErrorMessage(string message)
+        {
+            Assert.IsTrue(driver.FindElement(By.ClassName("state-msg-error")).Displayed);
+            Assert.AreEqual(driver.FindElement(By.ClassName("state-msg-error")).Text, message);
+        }
     }
 }
